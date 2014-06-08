@@ -50,7 +50,7 @@ They are already freely avalible on the web "parsec.cs.princeton.edu/download.ht
      Fourth parameter given to "executeOurImpelemtation" is the file where the outputs are written for each application.
      Moreover, in the end, a file with name format "HH:MM:SS_DD_MM_YYYY_execution_history.txt" is written, which includes all the test results executed with "executeOurImpelemtation" function call. This file is an XML file, which is easy to read and understand.
      ie:
-     '''xml
+     ```xml
      	<OWN>
 		  <RACE_COUNT>0</RACE_COUNT>
 		  <ALGORITHM>hybrid</ALGORITHM>
@@ -61,7 +61,7 @@ They are already freely avalible on the web "parsec.cs.princeton.edu/download.ht
 		  <INPUT_TYPE>simsmall</INPUT_TYPE>
 		  <enable_signle_access/>
 	    </OWN>
-       '''
+       ```
   
   
   
