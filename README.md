@@ -3,7 +3,18 @@ dyndatarace
 
 Dynamic Data Race Detection
 
+This repo includes the executables and all the required data for executing the experiments in the 
+"Segment Based Hybrid Dynamic Data Race Detection" paper and the technical report in Bogazici University (Dynamic Data Race Detection in Concurrent Programs).
+
 Four different pintools are under the folder "pintools". Their names are self explanatory.
+
+In our experiments, we used the following tools and their exact versions:
+PIN version: "pin-2.1256759-gcc-4.4.7". 
+Apache httpd web server version: 2-2.22
+pbzip2 version: Parallel BZIP2 v1.1.6
+Parsec version: PARSEC 3.0
+Firefox: Firefox 28.0 (used in only in the technical report)
+
 
 
 ===========
