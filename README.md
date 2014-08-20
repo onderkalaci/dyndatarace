@@ -16,6 +16,14 @@ Parsec version: PARSEC 3.0
 Firefox: Firefox 28.0 (used in only in the technical report)
 
 
+===========
+How to compile from sources
+
+Firstly, set the "PIN_ROOT" variable as the root directory of your PIN directory. 
+Then, for each of the detector (sources/PureHappensBefore, sources/PureLockset, sources/HybridDetector), change the directory,
+and execute a single "make" command.
+For each detector, a folder named "obj-intel64" will be created.
+The file with the ".so" extention (ie. PureLockset.so) is the pintool which is required for insturmentation.
 
 ===========
 Inputs for httpd and pbzip2 is under "inputs" folder. We do not include the inputs for PARSEC 3.0 benchmark applications.
@@ -39,7 +47,7 @@ They are already freely avalible on the web "parsec.cs.princeton.edu/download.ht
    
      For lockset implementataion: example.executeOurImpelemtation("purelocset", "PureLocksetImp.so",{} , "purelockset_")
      For hb implementataion: example.executeOurImpelemtation("purehb", "PureHappensBeforeImp.so",{}, "purehb_")
-     For hybrid implementataion with no optimizations enabled: example.executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{} , "tsan_1_0")
+     For hybrid implementataion with no optimizations enabled: example.executeOurImpelemtation("hybrid", "HybridDetector.so",{} , "tsan_1_0")
    iii) How to execute segment based hybird implementation with optimizations:
       Add optimizations with values to the "executeOurImpelemtation" call as the 3rd input.
       
@@ -49,12 +57,12 @@ They are already freely avalible on the web "parsec.cs.princeton.edu/download.ht
       Optimization 4: sample_rate
    
 
-			example.executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{ "enable_signle_access" : ""}, "tsan_131072_1")
-            example.executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{"maxVCHistoryCount" :100] } , "tsan_1_0")
-			example.executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{"sample_rage" :0.1] } , "tsan_1_0")
-			executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{"max_single_segment_set_size":12000 } , "tsan_1_0")
+			example.executeOurImpelemtation("hybrid", "HybridDetector.so",{ "enable_signle_access" : ""}, "tsan_131072_1")
+            example.executeOurImpelemtation("hybrid", "HybridDetector.so",{"maxVCHistoryCount" :100] } , "tsan_1_0")
+			example.executeOurImpelemtation("hybrid", "HybridDetector.so",{"sample_rage" :0.1] } , "tsan_1_0")
+			executeOurImpelemtation("hybrid", "HybridDetector.so",{"max_single_segment_set_size":12000 } , "tsan_1_0")
 			or combinations:
-			example.executeOurImpelemtation("hybrid", "SegmentBasedHybridImp.so",{"max_single_segment_set_size":segmentCountForThisExecution, "enable_signle_access" : "", "sample_rate" :str(SAMPLE_RATES[counter]) } , "tsan_1_0")
+			example.executeOurImpelemtation("hybrid", "HybridDetector.so",{"max_single_segment_set_size":segmentCountForThisExecution, "enable_signle_access" : "", "sample_rate" :str(SAMPLE_RATES[counter]) } , "tsan_1_0")
 		
 
   c)How to get output
