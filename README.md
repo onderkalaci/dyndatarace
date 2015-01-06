@@ -1,14 +1,19 @@
-dyndatarace
+Dyndatarace
 ===========
 
-Dynamic Data Race Detection
+Dynamic Data Race Detection Tool (Dyndatarace): Copyright 2014 Onder Kalaci, Alper Sen, Bogazici University.
 
-This repo includes the executables and all the required data for executing the experiments in the 
-"Segment Based Hybrid Dynamic Data Race Detection" paper and the technical report in Bogazici University (Dynamic Data Race Detection in Concurrent Programs).
+This repo includes the precompiled executables and source codes of Dyndatarace, a binary instrumentation based hybrid dynamic data race detection tool. All the required data for executing the experiments
+described in below publications are included as well.
 
-Four different pintools are under the folder "pintools". Their names are self explanatory.
+Onder Kalaci, DYNAMIC DATA RACE DETECTION IN CONCURRENT PROGRAMS, MS Thesis, Bogazici University, 2014. Supervisor: Alper Sen
 
-In our experiments, we used the following tools and their exact versions:
+Onder Kalaci, Alper Sen, "Hybrid Data Race Detection for Multithreaded Programs", Technical Report, Bogazici University, 2014. 
+
+The distribution includes four different pintools are under the folder "pintools".  Our algorithm is in SegmentBasedHybrid directory. 
+
+In our experiments, we used the following vesions of tools:
+
 PIN version: "pin-2.1256759-gcc-4.4.7". 
 Apache httpd web server version: 2-2.22
 pbzip2 version: Parallel BZIP2 v1.1.6
@@ -19,7 +24,7 @@ Firefox: Firefox 28.0 (used in only in the technical report)
 ===========
 How to compile from sources
 
-Firstly, set the "PIN_ROOT" variable as the root directory of your PIN directory. 
+First, set the "PIN_ROOT" variable as the root directory of your PIN directory. 
 Then, for each of the detector (sources/PureHappensBefore, sources/PureLockset, sources/HybridDetector), change the directory,
 and execute a single "make" command.
 For each detector, a folder named "obj-intel64" will be created.
@@ -65,7 +70,7 @@ They are already freely avalible on the web "parsec.cs.princeton.edu/download.ht
 			example.executeOurImpelemtation("hybrid", "HybridDetector.so",{"max_single_segment_set_size":segmentCountForThisExecution, "enable_signle_access" : "", "sample_rate" :str(SAMPLE_RATES[counter]) } , "tsan_1_0")
 		
 
-  c)How to get output
+  c) How to get output:
      Fourth parameter given to "executeOurImpelemtation" is the file where the outputs are written for each application.
      Moreover, in the end, a file with name format "HH:MM:SS_DD_MM_YYYY_execution_history.txt" is written, which includes all the test results executed with "executeOurImpelemtation" function call. This file is an XML file, which is easy to read and understand.
      ie:
